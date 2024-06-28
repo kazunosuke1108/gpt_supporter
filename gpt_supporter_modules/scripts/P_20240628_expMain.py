@@ -65,6 +65,7 @@ class expMain(analysisManagement,ExpCommons):
             [2,19],
             [4,19],
             [4,18],
+            [4,18],
         ])
         traj_A=np.zeros((2,len(t)))
         traj_A=fill_traj(checkpoints=checkpoints,traj=traj_A,vel=vel_A)
@@ -78,6 +79,7 @@ class expMain(analysisManagement,ExpCommons):
             [2,10],
             [2,0],
             [4,0],
+            [4,1],
             [4,1],
         ])
         traj_B=np.zeros((2,len(t)))
@@ -95,6 +97,7 @@ class expMain(analysisManagement,ExpCommons):
             [2,7],
             [7,7],
             [7,4],
+            [9,4],
             [9,4],
         ])
         traj_C=np.zeros((2,len(t)))
