@@ -31,7 +31,8 @@ class expMain(analysisManagement,ExpCommons):
         self.client = OpenAI(api_key="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")
 
         ## load graph
-        pickledata=self.load_picklelog("C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/graph/20240628_165711_G.pickle")
+        # pickledata=self.load_picklelog("C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/graph/20240628_165711_G.pickle")
+        pickledata=self.load_picklelog("/home/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/graph/20240628_165711_G.pickle")
         self.G=pickledata["G"]
         self.node_dict=pickledata["node_dict"]
         self.edge_list=pickledata["edge_list"]
@@ -40,6 +41,9 @@ class expMain(analysisManagement,ExpCommons):
         self.label_list_A=self.label_traj(self.t, self.traj_A,self.node_dict,self.edge_list)
         self.label_list_B=self.label_traj(self.t, self.traj_B,self.node_dict,self.edge_list)
         self.label_list_C=self.label_traj(self.t, self.traj_C,self.node_dict,self.edge_list)
+        print(self.label_list_A)
+        print(self.label_list_B)
+        print(self.label_list_C)
 
     def define_traj(self):
         t=np.arange(0,40,self.control_dt)
@@ -80,15 +84,15 @@ class expMain(analysisManagement,ExpCommons):
         ## B
         vel_B=1.0 # [m/s]
         checkpoints=np.array([
-            [0,19],
-            [0,19],
+            [4,18],
+            [4,18],
+            [4,19],
             [2,19],
             [2,10],
             [2,10],
             [2,0],
-            [4,0],
-            [4,1],
-            [4,1],
+            [0,0],
+            [0,0],
         ])
         traj_B=np.zeros((2,len(t)))
         traj_B=fill_traj(checkpoints=checkpoints,traj=traj_B,vel=vel_B)
@@ -164,7 +168,8 @@ class expMain(analysisManagement,ExpCommons):
         return traj_label
 
     def import_initialPrompt(self):
-        initialPrompt_path="C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/prompt/20240628_initialPrompt.txt"
+        # initialPrompt_path="C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/prompt/20240628_initialPrompt.txt"
+        initialPrompt_path="/home/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/prompt/20240628_initialPrompt.txt"
         with open(initialPrompt_path,"r") as f:
             txt=f.read()
         return txt
@@ -184,6 +189,7 @@ Please execute the task which was instructed in the first prompt."""
         messages=[]
         initial_prompt=self.import_initialPrompt()
         print(initial_prompt,"\n")
+        self.logger.info(f"initial prompt:\n{initial_prompt}")
         messages.append({
             "role":"system",
             "content":initial_prompt
@@ -196,6 +202,8 @@ Please execute the task which was instructed in the first prompt."""
                 "role":"user",
                 "content":seq_prompt
             })
+            self.logger.info(f"sequential prompt no.{idx}:\n{seq_prompt}")
+
             # GPT
             completion = self.client.chat.completions.create(
                 model="gpt-4o",
@@ -207,7 +215,11 @@ Please execute the task which was instructed in the first prompt."""
                 "content":response
             })
             print(response)
-            self.write_picklelog({"completion":completion},self.trial_dir_path+"/"+os.path.basename(self.trial_dir_path)+f"_completion_{str(idx).zfill(2)}.pickle")
+            self.logger.info(f"response no.{idx}:\n{response}")
+            self.write_picklelog({
+                "completion":completion,
+                "messages":messages,
+                },self.trial_dir_path+"/"+os.path.basename(self.trial_dir_path)+f"_completion_{str(idx).zfill(2)}.pickle")
 
 cls=expMain()
 cls.main()
