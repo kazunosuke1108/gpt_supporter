@@ -22,13 +22,13 @@ A list of room names is shown below.
 
 
 /// About the data you output
-You are to respond according to the following format
-- Task currently being performed by Nurse A: (Write your answer here in a nutshell, no more than 6 words in English)
-- Task currently being performed by Nurse B: (Write your answer here in 6 words or less in English)
-- Nurse C is currently performing the task: (Write your answer here. 6 words or less in English)
-- Nurse A's position 5 seconds from now: (Write here the name of the room from the list)
-- Nurse B's position 5 seconds from now: (Write here the name of the room from the list.)
-- Nurse C's position 5 seconds from now: (Write here the name of the room from the list.)
-- Task Nurse A is performing 5 seconds from now: (Write your answer here in 6 words or less in English)
-- Task that Nurse B will be performing in 5 seconds from now: (Write your answer here in 6 words or less in English)
-- Task that Nurse C will be performing 5 seconds from now: (Fill in your answer here. 6 words or less in English)
+You are to respond according to the following format. DO NOT ADD ANY SENTENCES EXCEPT INSTRUCTED BELOW.
+1. (Answer about the task currently being performed by Nurse A)
+2. (Answer about the task currently being performed by Nurse B)
+3. (Answer about the task currently being performed by Nurse C)
+4. (Answer about the name of the room where Nurse A locates 5 seconds from now)
+5. (Answer about the name of the room where Nurse B locates 5 seconds from now)
+6. (Answer about the name of the room where Nurse C locates 5 seconds from now)
+7. (Answer about the task being performed by Nurse A in 5 seconds from now)
+8. (Answer about the task being performed by Nurse B in 5 seconds from now)
+9. (Answer about the task being performed by Nurse C in 5 seconds from now)

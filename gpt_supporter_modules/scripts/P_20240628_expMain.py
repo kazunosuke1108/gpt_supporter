@@ -7,6 +7,9 @@ import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib.gridspec import GridSpec
 
+from openai import OpenAI
+import os
+
 from M_20240427_analysisManagement import analysisManagement
 from M_20240430_expCommons import ExpCommons
 # from L_20240625_defineNetwork import defineNetwork
@@ -23,6 +26,9 @@ class expMain(analysisManagement,ExpCommons):
 
         ## define trajectory
         self.t, self.traj_A, self.traj_B, self.traj_C=self.define_traj()
+
+        ## GPT
+        self.client = OpenAI(api_key="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")
 
         ## load graph
         pickledata=self.load_picklelog("C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/graph/20240628_165711_G.pickle")
@@ -161,24 +167,47 @@ class expMain(analysisManagement,ExpCommons):
         initialPrompt_path="C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/prompt/20240628_initialPrompt.txt"
         with open(initialPrompt_path,"r") as f:
             txt=f.read()
-        print(txt)
+        return txt
 
     def generate_sequentialPrompt(self,timestamp,pos_a,pos_b,pos_c):
-        prompt=f"""
-The next data is as shown below:
+        prompt=f"""The next data is as shown below:
 - timestamp:{timestamp} [s]
 - Position of the nurse A: {pos_a}
 - Position of the nurse B: {pos_b}
 - Position of the nurse C: {pos_c}
-Please execute the task which was instructed in the first prompt.
-"""
-        print(prompt)
-        pass
+Please execute the task which was instructed in the first prompt."""
+        return prompt
+    
     def main(self):
         self.define_traj()
-        self.import_initialPrompt()
+        
+        messages=[]
+        initial_prompt=self.import_initialPrompt()
+        print(initial_prompt,"\n")
+        messages.append({
+            "role":"system",
+            "content":initial_prompt
+        })
+
         for idx in range(len(self.t)):
-            self.generate_sequentialPrompt(self.t[idx],self.label_list_A[idx],self.label_list_B[idx],self.label_list_C[idx])
+            seq_prompt=self.generate_sequentialPrompt(self.t[idx],self.label_list_A[idx],self.label_list_B[idx],self.label_list_C[idx])
+            print(seq_prompt,"\n")
+            messages.append({
+                "role":"user",
+                "content":seq_prompt
+            })
+            # GPT
+            completion = self.client.chat.completions.create(
+                model="gpt-4o",
+                messages=messages,
+            )
+            response=completion.choices[-1].message.content
+            messages.append({
+                "role":"assistant",
+                "content":response
+            })
+            print(response)
+            self.write_picklelog({"completion":completion},self.trial_dir_path+"/"+os.path.basename(self.trial_dir_path)+f"_completion_{str(idx).zfill(2)}.pickle")
 
 cls=expMain()
 cls.main()
