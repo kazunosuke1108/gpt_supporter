@@ -1,0 +1,81 @@
+2024-06-28 21:51:49,072 [A_20240628_analyzeGPT.py:__init__:15] INFO       pickle_dir_path: C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/results/20240628/20240628_185040
+2024-06-28 21:51:49,411 [A_20240628_analyzeGPT.py:__init__:20] INFO       20240628_185040_completion_00.pickle
+1. Checking on patients in room 4A_00_00
+2. Checking on patients in room 4F_00_19
+3. Preparing supplies in the pantry (P_00_13)
+4. 4A_00_00
+5. 4F_00_19
+6. P_00_13
+7. Checking on patients in room 4A_00_00
+8. Checking on patients in room 4F_00_19
+9. Preparing supplies in the pantry (P_00_13)
+2024-06-28 21:51:49,420 [A_20240628_analyzeGPT.py:__init__:20] INFO       20240628_185040_completion_01.pickle
+1. Checking on patients in room 4A_00_00
+2. Checking on patients in room 4F_00_19
+3. Preparing supplies in the pantry (P_00_13)
+4. 4A_00_00
+5. 4F_00_19
+6. P_00_13
+7. Checking on patients in room 4A_00_00
+8. Checking on patients in room 4F_00_19
+9. Preparing supplies in the pantry (P_00_13)
+2024-06-28 21:51:49,420 [A_20240628_analyzeGPT.py:__init__:20] INFO       20240628_185040_completion_02.pickle
+1. Walking in the hallway (H_02_00)
+2. Walking in the hallway (H_02_19)
+3. Preparing supplies in the pantry (P_00_13)
+4. H_02_00
+5. H_02_19
+6. P_00_13
+7. Walking in the hallway (H_02_00)
+8. Walking in the hallway (H_02_19)
+9. Preparing supplies in the pantry (P_00_13)
+2024-06-28 21:51:49,421 [A_20240628_analyzeGPT.py:__init__:20] INFO       20240628_185040_completion_03.pickle
+1. Walking in the hallway (H_02_04)
+2. Walking in the hallway (H_02_10)
+3. Preparing supplies in the pantry (P_00_13)
+4. H_02_04
+5. H_02_10
+6. P_00_13
+7. Walking in the hallway (H_02_04)
+8. Walking in the hallway (H_02_10)
+9. Preparing supplies in the pantry (P_00_13)
+2024-06-28 21:51:49,422 [A_20240628_analyzeGPT.py:__init__:20] INFO       20240628_185040_completion_04.pickle
+1. Walking in the hallway (H_02_10)
+2. Walking in the hallway (H_02_10)
+3. Walking in the hallway (H_02_10)
+4. H_02_10
+5. H_02_10
+6. H_02_10
+7. Walking in the hallway (H_02_10)
+8. Walking in the hallway (H_02_10)
+9. Walking in the hallway (H_02_10)
+2024-06-28 21:51:49,422 [A_20240628_analyzeGPT.py:__init__:20] INFO       20240628_185040_completion_05.pickle
+1. Walking in the hallway (H_02_10)
+2. Walking in the hallway (H_02_10)
+3. Walking in the hallway (H_02_10)
+4. H_02_10
+5. H_02_10
+6. H_02_10
+7. Walking in the hallway (H_02_10)
+8. Walking in the hallway (H_02_10)
+9. Walking in the hallway (H_02_10)
+2024-06-28 21:51:49,423 [A_20240628_analyzeGPT.py:__init__:20] INFO       20240628_185040_completion_06.pickle
+1. Walking in the hallway (H_02_10)
+2. Walking in the hallway (H_02_04)
+3. Walking in the hallway (H_02_07)
+4. H_02_10
+5. H_02_04
+6. H_02_07
+7. Walking in the hallway (H_02_10)
+8. Walking in the hallway (H_02_04)
+9. Walking in the hallway (H_02_07)
+2024-06-28 21:51:49,423 [A_20240628_analyzeGPT.py:__init__:20] INFO       20240628_185040_completion_07.pickle
+1. Using the men's toilet (WCM2_04_18)
+2. Using the women's toilet (WCW1_04_01)
+3. Checking on patients in room 4I_09_04
+4. WCM2_04_18
+5. WCW1_04_01
+6. 4I_09_04
+7. Using the men's toilet (WCM2_04_18)
+8. Using the women's toilet (WCW1_04_01)
+9. Checking on patients in room 4I_09_04)
