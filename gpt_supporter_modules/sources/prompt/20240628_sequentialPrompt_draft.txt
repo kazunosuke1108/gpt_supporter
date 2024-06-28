@@ -1,0 +1,6 @@
+The next data is as shown below:
+- timestamp:
+- Position of the nurse A:
+- Position of the nurse B:
+- Position of the nurse C:
+Please execute the task which was instructed in the first prompt.

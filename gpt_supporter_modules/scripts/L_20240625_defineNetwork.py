@@ -28,46 +28,46 @@ class defineNetwork(analysisManagement,ExpCommons):
     def define_nodes(self):
         node_dict={}
         ## room
-        node_dict["4A"]={"loc":(0,0),"cat":"room_4"}
-        node_dict["4B"]={"loc":(0,2),"cat":"room_4"}
-        node_dict["4C"]={"loc":(0,4),"cat":"room_4"}
-        node_dict["4D"]={"loc":(0,15),"cat":"room_4"}
-        node_dict["4E"]={"loc":(0,17),"cat":"room_4"}
-        node_dict["4F"]={"loc":(0,19),"cat":"room_4"}
-        node_dict["4G"]={"loc":(9,0),"cat":"room_4"}
-        node_dict["4H"]={"loc":(9,2),"cat":"room_4"}
-        node_dict["4I"]={"loc":(9,4),"cat":"room_4"}
-        node_dict["4J"]={"loc":(9,15),"cat":"room_4"}
-        node_dict["4K"]={"loc":(9,17),"cat":"room_4"}
+        node_dict["4A_00_00"]={"loc":(0,0),"cat":"wardRoom_4"}
+        node_dict["4B_00_02"]={"loc":(0,2),"cat":"wardRoom_4"}
+        node_dict["4C_00_04"]={"loc":(0,4),"cat":"wardRoom_4"}
+        node_dict["4D_00_15"]={"loc":(0,15),"cat":"wardRoom_4"}
+        node_dict["4E_00_17"]={"loc":(0,17),"cat":"wardRoom_4"}
+        node_dict["4F_00_19"]={"loc":(0,19),"cat":"wardRoom_4"}
+        node_dict["4G_09_00"]={"loc":(9,0),"cat":"wardRoom_4"}
+        node_dict["4H_09_02"]={"loc":(9,2),"cat":"wardRoom_4"}
+        node_dict["4I_09_04"]={"loc":(9,4),"cat":"wardRoom_4"}
+        node_dict["4J_09_15"]={"loc":(9,15),"cat":"wardRoom_4"}
+        node_dict["4K_09_17"]={"loc":(9,17),"cat":"wardRoom_4"}
 
-        node_dict["1A"]={"loc":(9,12),"cat":"room_1"}
-        node_dict["1B"]={"loc":(9,13),"cat":"room_1"}
-        node_dict["1C"]={"loc":(9,18),"cat":"room_1"}
-        node_dict["1D"]={"loc":(9,19),"cat":"room_1"}
+        node_dict["1A_09_12"]={"loc":(9,12),"cat":"wardRoom_1"}
+        node_dict["1B_09_13"]={"loc":(9,13),"cat":"wardRoom_1"}
+        node_dict["1C_09_18"]={"loc":(9,18),"cat":"wardRoom_1"}
+        node_dict["1D_09_19"]={"loc":(9,19),"cat":"wardRoom_1"}
 
-        node_dict["WCW1"]={"loc":(4,1),"cat":"wc_w"}
-        node_dict["WCM1"]={"loc":(5,1),"cat":"wc_m"}
-        node_dict["WCW2"]={"loc":(5,18),"cat":"wc_w"}
-        node_dict["WCM2"]={"loc":(4,18),"cat":"wc_m"}
-        node_dict["WC1"]={"loc":(6,3),"cat":"wc"}
-        node_dict["WC2"]={"loc":(3,16),"cat":"wc"}
+        node_dict["WCW1_04_01"]={"loc":(4,1),"cat":"wc_w"}
+        node_dict["WCM1_05_01"]={"loc":(5,1),"cat":"wc_m"}
+        node_dict["WCW2_05_18"]={"loc":(5,18),"cat":"wc_w"}
+        node_dict["WCM2_04_18"]={"loc":(4,18),"cat":"wc_m"}
+        node_dict["WC1_06_03"]={"loc":(6,3),"cat":"wc"}
+        node_dict["WC2_03_16"]={"loc":(3,16),"cat":"wc"}
 
-        node_dict["EV1"]={"loc":(4,6),"cat":"ev"}
-        node_dict["EV2"]={"loc":(5,6),"cat":"ev"}
-        node_dict["EV3"]={"loc":(4,13),"cat":"ev"}
+        node_dict["EV1_04_06"]={"loc":(4,6),"cat":"ev"}
+        node_dict["EV2_05_06"]={"loc":(5,6),"cat":"ev"}
+        node_dict["EV3_04_13"]={"loc":(4,13),"cat":"ev"}
 
-        node_dict["BT1"]={"loc":(6,5),"cat":"bath"}
-        node_dict["BT2"]={"loc":(6,16),"cat":"bath"}
+        node_dict["BT1_06_05"]={"loc":(6,5),"cat":"bath"}
+        node_dict["BT2_06_16"]={"loc":(6,16),"cat":"bath"}
 
-        node_dict["T1"]={"loc":(0,6),"cat":"terrace"}
-        node_dict["T2"]={"loc":(9,14),"cat":"terrace"}
+        node_dict["T1_00_06"]={"loc":(0,6),"cat":"terrace"}
+        node_dict["T2_09_14"]={"loc":(9,14),"cat":"terrace"}
 
-        node_dict["P"]={"loc":(0,13),"cat":"pantry"}
+        node_dict["P_00_13"]={"loc":(0,13),"cat":"pantry"}
 
-        node_dict["M"]={"loc":(9,7),"cat":"mtgRoom"}
+        node_dict["M_09_07"]={"loc":(9,7),"cat":"mtgRoom"}
 
-        node_dict["S1"]={"loc":(0,14),"cat":"stairs"}
-        node_dict["S2"]={"loc":(9,6),"cat":"stairs"}
+        node_dict["S1_00_14"]={"loc":(0,14),"cat":"stairs"}
+        node_dict["S2_09_06"]={"loc":(9,6),"cat":"stairs"}
 
         ## Hallway
         hallway_loc_list=np.array([
@@ -122,40 +122,40 @@ class defineNetwork(analysisManagement,ExpCommons):
     def define_edges(self):
         edge_list=[]
         # room2hallway
-        edge_list.append(("4A","H_02_00"))
-        edge_list.append(("4B","H_02_02"))
-        edge_list.append(("4C","H_02_04"))
-        edge_list.append(("4D","H_02_15"))
-        edge_list.append(("4E","H_02_17"))
-        edge_list.append(("4F","H_02_19"))
-        edge_list.append(("4G","H_07_00"))
-        edge_list.append(("4H","H_07_02"))
-        edge_list.append(("4I","H_07_04"))
-        edge_list.append(("4J","H_07_15"))
-        edge_list.append(("4K","H_07_17"))
-        edge_list.append(("1A","H_07_12"))
-        edge_list.append(("1B","H_07_13"))
-        edge_list.append(("1C","H_07_18"))
-        edge_list.append(("1D","H_07_19"))
+        edge_list.append(("4A_00_00","H_02_00"))
+        edge_list.append(("4B_00_02","H_02_02"))
+        edge_list.append(("4C_00_04","H_02_04"))
+        edge_list.append(("4D_00_15","H_02_15"))
+        edge_list.append(("4E_00_17","H_02_17"))
+        edge_list.append(("4F_00_19","H_02_19"))
+        edge_list.append(("4G_09_00","H_07_00"))
+        edge_list.append(("4H_09_02","H_07_02"))
+        edge_list.append(("4I_09_04","H_07_04"))
+        edge_list.append(("4J_09_15","H_07_15"))
+        edge_list.append(("4K_09_17","H_07_17"))
+        edge_list.append(("1A_09_12","H_07_12"))
+        edge_list.append(("1B_09_13","H_07_13"))
+        edge_list.append(("1C_09_18","H_07_18"))
+        edge_list.append(("1D_09_19","H_07_19"))
         # equipment2hallway
-        edge_list.append(("WCW1","H_04_00"))
-        edge_list.append(("WCM1","H_05_00"))
-        edge_list.append(("WCM2","H_04_19"))
-        edge_list.append(("WCW2","H_05_19"))
-        edge_list.append(("WC1","H_07_03"))
-        edge_list.append(("WC2","H_02_16"))
-        edge_list.append(("BT1","H_07_05"))
-        edge_list.append(("BT2","H_07_16"))
-        edge_list.append(("EV1","H_04_07"))
-        edge_list.append(("EV2","H_05_07"))
-        edge_list.append(("EV3","H_04_12"))
-        edge_list.append(("T1","H_02_06"))
-        edge_list.append(("T2","H_08_14"))
-        edge_list.append(("S1","H_01_13"))
+        edge_list.append(("WCW1_04_01","H_04_00"))
+        edge_list.append(("WCM1_05_01","H_05_00"))
+        edge_list.append(("WCM2_04_18","H_04_19"))
+        edge_list.append(("WCW2_05_18","H_05_19"))
+        edge_list.append(("WC1_06_03","H_07_03"))
+        edge_list.append(("WC2_03_16","H_02_16"))
+        edge_list.append(("BT1_06_05","H_07_05"))
+        edge_list.append(("BT2_06_16","H_07_16"))
+        edge_list.append(("EV1_04_06","H_04_07"))
+        edge_list.append(("EV2_05_06","H_05_07"))
+        edge_list.append(("EV3_04_13","H_04_12"))
+        edge_list.append(("T1_00_06","H_02_06"))
+        edge_list.append(("T2_09_14","H_08_14"))
+        edge_list.append(("S1_00_14","H_01_13"))
         # edge_list.append(("S2","H_01_13"))
-        edge_list.append(("S2","H_08_07"))
-        edge_list.append(("M","H_08_07"))
-        edge_list.append(("P","H_01_13"))
+        edge_list.append(("S2_09_06","H_08_07"))
+        edge_list.append(("M_09_07","H_08_07"))
+        edge_list.append(("P_00_13","H_01_13"))
         # hallway2hallway
         ## main loop
         edge_list.append(("H_02_00","H_02_02"))

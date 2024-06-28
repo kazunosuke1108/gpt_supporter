@@ -18,25 +18,25 @@ class expMain(analysisManagement,ExpCommons):
         self.trial_dir_path=self.create_trial_dir()
 
         ## parameters
-        self.control_dt=1
+        self.control_dt=5
         self.control_hz=1/self.control_dt
 
         ## define trajectory
         self.t, self.traj_A, self.traj_B, self.traj_C=self.define_traj()
 
         ## load graph
-        pickledata=self.load_picklelog("C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/20240628_125259_G.pickle")
+        pickledata=self.load_picklelog("C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/graph/20240628_165711_G.pickle")
         self.G=pickledata["G"]
         self.node_dict=pickledata["node_dict"]
         self.edge_list=pickledata["edge_list"]
 
         ## label the trajectory
-        self.label_traj(self.t, self.traj_A,self.node_dict,self.edge_list)
-        self.label_traj(self.t, self.traj_B,self.node_dict,self.edge_list)
-        self.label_traj(self.t, self.traj_C,self.node_dict,self.edge_list)
+        self.label_list_A=self.label_traj(self.t, self.traj_A,self.node_dict,self.edge_list)
+        self.label_list_B=self.label_traj(self.t, self.traj_B,self.node_dict,self.edge_list)
+        self.label_list_C=self.label_traj(self.t, self.traj_C,self.node_dict,self.edge_list)
 
     def define_traj(self):
-        t=np.arange(0,50,self.control_dt)
+        t=np.arange(0,40,self.control_dt)
 
         def fill_traj(checkpoints,traj,vel):
             current_idx=0
@@ -59,6 +59,7 @@ class expMain(analysisManagement,ExpCommons):
         vel_A=1.0 # [m/s]
         checkpoints=np.array([
             [0,0],
+            [0,0],
             [2,0],
             [2,10],
             [2,10],
@@ -73,6 +74,7 @@ class expMain(analysisManagement,ExpCommons):
         ## B
         vel_B=1.0 # [m/s]
         checkpoints=np.array([
+            [0,19],
             [0,19],
             [2,19],
             [2,10],
@@ -89,6 +91,7 @@ class expMain(analysisManagement,ExpCommons):
         ## C
         vel_C=1.0 # [m/s]
         checkpoints=np.array([
+            [0,13],
             [0,13],
             [0,13],
             [2,13],
@@ -129,7 +132,7 @@ class expMain(analysisManagement,ExpCommons):
         return t, traj_A, traj_B, traj_C
 
     def label_traj(self,t,traj,node_dict,edge_list):
-        print(node_dict)
+        # print(node_dict)
         traj_label=[]
         traj_cat=[]
         for i in range(traj.shape[1]):
@@ -154,8 +157,28 @@ class expMain(analysisManagement,ExpCommons):
 
         return traj_label
 
+    def import_initialPrompt(self):
+        initialPrompt_path="C:/Users/hayashide/kazu_ws/gpt_supporter/gpt_supporter_modules/sources/prompt/20240628_initialPrompt.txt"
+        with open(initialPrompt_path,"r") as f:
+            txt=f.read()
+        print(txt)
+
+    def generate_sequentialPrompt(self,timestamp,pos_a,pos_b,pos_c):
+        prompt=f"""
+The next data is as shown below:
+- timestamp:{timestamp} [s]
+- Position of the nurse A: {pos_a}
+- Position of the nurse B: {pos_b}
+- Position of the nurse C: {pos_c}
+Please execute the task which was instructed in the first prompt.
+"""
+        print(prompt)
+        pass
     def main(self):
         self.define_traj()
+        self.import_initialPrompt()
+        for idx in range(len(self.t)):
+            self.generate_sequentialPrompt(self.t[idx],self.label_list_A[idx],self.label_list_B[idx],self.label_list_C[idx])
 
 cls=expMain()
 cls.main()
