@@ -166,7 +166,7 @@ This is the end of the data. Answer the question about this scenario.
             })
 
         for index,scene in self.scenes.iterrows():
-            if scene["timestamp"]>=64 & scene["timestamp"]<=94:
+            if (scene["timestamp"]>=64) & (scene["timestamp"]<=94):
                 diapers="(Possesses diapers)"
             else:
                 diapers=""
