@@ -1,0 +1,1115 @@
+2024-06-29 13:03:48,446 [P_20240628_expMain.py:main:259] INFO       initial prompt:
+/// Task Description
+You are an internal processing system of a sensor. You are going to predict a person's actions and tasks based on the person's activity history in a certain ward.
+/// About the data to be provided
+You will pass sensor data acquired every 5 seconds. The data will include the following information.
+- The time when the data was acquired [seconds]
+- Name of the room where Nurse A is
+- Name of the room where Nurse B is located
+- Name of the room where Nurse C is located
+The room name is (room abbreviation)_(x-coordinate of room)_(y-coordinate of room), where the abbreviation has the following meaning.
+- 4X (X is a letter of the alphabet from A to K): 4-patient room
+- 1X (X is a letter from A to K): One-patient room
+- WCWx (x is 1 or 2): Women's toilet
+- WCMx (x is 1 or 2): Men's toilet
+- WCx (x is 1 or 2):Unisex toilet
+- EVx (x = 1~3):Elevator
+- Tx (x is 1 or 2):Terrace
+- P:Pantry
+- M:Meeting room
+- Sx (x is 1 or 2):Stairway
+A list of room names is shown below.
+4A_00_00, 4B_00_02, 4C_00_04, 4D_00_15, 4E_00_17, 4F_00_19, 4G_09_00, 4H_09_02, 4I_09_04, 4J_09_15, 4K_09_17, 1A_09_12, 1B_09_13, 1C_09_18, 1D_09_19, WCW1_04_01, WCM1_05_01, WCW2_05_18, WCM2_04_18, WC1_06_03, WC2_03_16, EV1_04_06, EV2_05_06, EV3_04_13, BT1_06_05, BT2_06_16, T1_00_06, T2_09_14, P_00_13, M_09_07, S1_00_14, S2_09_06, H_01_10, H_01_13, H_02_00, H_02_02, H_02_04, H_02_06, H_02_07, H_02_10, H_02_12, H_02_13, H_02_15, H_02_16, H_02_17, H_02_19, H_04_00, H_04_07, H_04_10, H_04_12, H_04_19, H_05_00, H_05_07, H_05_19, H_07_00, H_07_02, H_07_03, H_07_04, H_07_05, H_07_07, H_07_10, H_07_12, H_07_13, H_07_14, H_07_15, H_07_16, H_07_17, H_07_18, H_07_19, H_08_07, H_08_10, H_08_14
+
+
+/// About the data you output
+You are to respond according to the following format. DO NOT ADD ANY SENTENCES EXCEPT INSTRUCTED BELOW.
+1. (Answer about the task currently being performed by Nurse A)
+2. (Answer about the task currently being performed by Nurse B)
+3. (Answer about the task currently being performed by Nurse C)
+4. (Answer about the name of the room where Nurse A locates 5 seconds from now)
+5. (Answer about the name of the room where Nurse B locates 5 seconds from now)
+6. (Answer about the name of the room where Nurse C locates 5 seconds from now)
+7. (Answer about the task being performed by Nurse A in 5 seconds from now)
+8. (Answer about the task being performed by Nurse B in 5 seconds from now)
+9. (Answer about the task being performed by Nurse C in 5 seconds from now)
+2024-06-29 13:03:48,447 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.0:
+The next data is as shown below:
+- timestamp:0 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,447 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.1:
+The next data is as shown below:
+- timestamp:1 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,447 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.2:
+The next data is as shown below:
+- timestamp:2 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,448 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.3:
+The next data is as shown below:
+- timestamp:3 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,448 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.4:
+The next data is as shown below:
+- timestamp:4 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,448 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.5:
+The next data is as shown below:
+- timestamp:5 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,449 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.6:
+The next data is as shown below:
+- timestamp:6 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,449 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.7:
+The next data is as shown below:
+- timestamp:7 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,449 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.8:
+The next data is as shown below:
+- timestamp:8 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,450 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.9:
+The next data is as shown below:
+- timestamp:9 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,450 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.10:
+The next data is as shown below:
+- timestamp:10 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,451 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.11:
+The next data is as shown below:
+- timestamp:11 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,451 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.12:
+The next data is as shown below:
+- timestamp:12 [s]
+- Position of the nurse A: H_02_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,452 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.13:
+The next data is as shown below:
+- timestamp:13 [s]
+- Position of the nurse A: H_02_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,452 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.14:
+The next data is as shown below:
+- timestamp:14 [s]
+- Position of the nurse A: H_02_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,453 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.15:
+The next data is as shown below:
+- timestamp:15 [s]
+- Position of the nurse A: H_02_14
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,453 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.16:
+The next data is as shown below:
+- timestamp:16 [s]
+- Position of the nurse A: H_02_14
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,454 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.17:
+The next data is as shown below:
+- timestamp:17 [s]
+- Position of the nurse A: H_02_14
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,454 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.18:
+The next data is as shown below:
+- timestamp:18 [s]
+- Position of the nurse A: H_02_14
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,454 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.19:
+The next data is as shown below:
+- timestamp:19 [s]
+- Position of the nurse A: H_02_12
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,455 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.20:
+The next data is as shown below:
+- timestamp:20 [s]
+- Position of the nurse A: H_02_12
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,455 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.21:
+The next data is as shown below:
+- timestamp:21 [s]
+- Position of the nurse A: H_02_12
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,456 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.22:
+The next data is as shown below:
+- timestamp:22 [s]
+- Position of the nurse A: H_02_08
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,456 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.23:
+The next data is as shown below:
+- timestamp:23 [s]
+- Position of the nurse A: H_02_08
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,456 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.24:
+The next data is as shown below:
+- timestamp:24 [s]
+- Position of the nurse A: H_02_08
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,457 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.25:
+The next data is as shown below:
+- timestamp:25 [s]
+- Position of the nurse A: H_02_08
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,457 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.26:
+The next data is as shown below:
+- timestamp:26 [s]
+- Position of the nurse A: H_02_04
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,458 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.27:
+The next data is as shown below:
+- timestamp:27 [s]
+- Position of the nurse A: H_02_04
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,458 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.28:
+The next data is as shown below:
+- timestamp:28 [s]
+- Position of the nurse A: H_02_04
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,458 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.29:
+The next data is as shown below:
+- timestamp:29 [s]
+- Position of the nurse A: H_02_04
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,459 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.30:
+The next data is as shown below:
+- timestamp:30 [s]
+- Position of the nurse A: WCW1_04_02
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,459 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.31:
+The next data is as shown below:
+- timestamp:31 [s]
+- Position of the nurse A: H_02_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,459 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.32:
+The next data is as shown below:
+- timestamp:32 [s]
+- Position of the nurse A: H_02_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,460 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.33:
+The next data is as shown below:
+- timestamp:33 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,460 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.34:
+The next data is as shown below:
+- timestamp:34 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,460 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.35:
+The next data is as shown below:
+- timestamp:35 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,461 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.36:
+The next data is as shown below:
+- timestamp:36 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,461 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.37:
+The next data is as shown below:
+- timestamp:37 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,461 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.38:
+The next data is as shown below:
+- timestamp:38 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,462 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.39:
+The next data is as shown below:
+- timestamp:39 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,462 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.40:
+The next data is as shown below:
+- timestamp:40 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,463 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.41:
+The next data is as shown below:
+- timestamp:41 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,463 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.42:
+The next data is as shown below:
+- timestamp:42 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,463 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.43:
+The next data is as shown below:
+- timestamp:43 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,464 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.44:
+The next data is as shown below:
+- timestamp:44 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,464 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.45:
+The next data is as shown below:
+- timestamp:45 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_24
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,464 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.46:
+The next data is as shown below:
+- timestamp:46 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_24
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,465 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.47:
+The next data is as shown below:
+- timestamp:47 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_24
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,465 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.48:
+The next data is as shown below:
+- timestamp:48 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_26
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,466 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.49:
+The next data is as shown below:
+- timestamp:49 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_26
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,467 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.50:
+The next data is as shown below:
+- timestamp:50 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: S1_00_28
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,467 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.51:
+The next data is as shown below:
+- timestamp:51 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,467 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.52:
+The next data is as shown below:
+- timestamp:52 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,468 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.53:
+The next data is as shown below:
+- timestamp:53 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,468 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.54:
+The next data is as shown below:
+- timestamp:54 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,468 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.55:
+The next data is as shown below:
+- timestamp:55 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,469 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.56:
+The next data is as shown below:
+- timestamp:56 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,469 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.57:
+The next data is as shown below:
+- timestamp:57 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,470 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.58:
+The next data is as shown below:
+- timestamp:58 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,470 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.59:
+The next data is as shown below:
+- timestamp:59 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,470 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.60:
+The next data is as shown below:
+- timestamp:60 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,471 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.61:
+The next data is as shown below:
+- timestamp:61 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,471 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.62:
+The next data is as shown below:
+- timestamp:62 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,471 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.63:
+The next data is as shown below:
+- timestamp:63 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: Sh_03_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,472 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.64:
+The next data is as shown below:
+- timestamp:64 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,472 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.65:
+The next data is as shown below:
+- timestamp:65 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_30
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,472 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.66:
+The next data is as shown below:
+- timestamp:66 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: S1_00_28
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,473 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.67:
+The next data is as shown below:
+- timestamp:67 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_26
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,473 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.68:
+The next data is as shown below:
+- timestamp:68 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_26
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,473 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.69:
+The next data is as shown below:
+- timestamp:69 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_24
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,473 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.70:
+The next data is as shown below:
+- timestamp:70 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_24
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,474 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.71:
+The next data is as shown below:
+- timestamp:71 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_24
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,474 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.72:
+The next data is as shown below:
+- timestamp:72 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,474 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.73:
+The next data is as shown below:
+- timestamp:73 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,475 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.74:
+The next data is as shown below:
+- timestamp:74 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,475 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.75:
+The next data is as shown below:
+- timestamp:75 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,475 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.76:
+The next data is as shown below:
+- timestamp:76 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,475 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.77:
+The next data is as shown below:
+- timestamp:77 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_14
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,476 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.78:
+The next data is as shown below:
+- timestamp:78 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_14
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,476 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.79:
+The next data is as shown below:
+- timestamp:79 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_14
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,476 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.80:
+The next data is as shown below:
+- timestamp:80 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_14
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,477 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.81:
+The next data is as shown below:
+- timestamp:81 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_12
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,477 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.82:
+The next data is as shown below:
+- timestamp:82 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_12
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,477 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.83:
+The next data is as shown below:
+- timestamp:83 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_12
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,478 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.84:
+The next data is as shown below:
+- timestamp:84 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_08
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,478 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.85:
+The next data is as shown below:
+- timestamp:85 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_08
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,478 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.86:
+The next data is as shown below:
+- timestamp:86 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_08
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,478 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.87:
+The next data is as shown below:
+- timestamp:87 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_08
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,479 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.88:
+The next data is as shown below:
+- timestamp:88 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_04
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,479 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.89:
+The next data is as shown below:
+- timestamp:89 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_04
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,479 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.90:
+The next data is as shown below:
+- timestamp:90 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_04
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,480 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.91:
+The next data is as shown below:
+- timestamp:91 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_04
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,480 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.92:
+The next data is as shown below:
+- timestamp:92 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: WCW1_04_02
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,480 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.93:
+The next data is as shown below:
+- timestamp:93 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,481 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.94:
+The next data is as shown below:
+- timestamp:94 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,481 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.95:
+The next data is as shown below:
+- timestamp:95 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,481 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.96:
+The next data is as shown below:
+- timestamp:96 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,481 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.97:
+The next data is as shown below:
+- timestamp:97 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,482 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.98:
+The next data is as shown below:
+- timestamp:98 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,482 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.99:
+The next data is as shown below:
+- timestamp:99 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,482 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.100:
+The next data is as shown below:
+- timestamp:100 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,483 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.101:
+The next data is as shown below:
+- timestamp:101 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,483 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.102:
+The next data is as shown below:
+- timestamp:102 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,483 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.103:
+The next data is as shown below:
+- timestamp:103 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,484 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.104:
+The next data is as shown below:
+- timestamp:104 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,484 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.105:
+The next data is as shown below:
+- timestamp:105 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,484 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.106:
+The next data is as shown below:
+- timestamp:106 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,485 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.107:
+The next data is as shown below:
+- timestamp:107 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: 4A_00_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,485 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.108:
+The next data is as shown below:
+- timestamp:108 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,485 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.109:
+The next data is as shown below:
+- timestamp:109 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_00
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,486 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.110:
+The next data is as shown below:
+- timestamp:110 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: WCW1_04_02
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,486 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.111:
+The next data is as shown below:
+- timestamp:111 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_04
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,487 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.112:
+The next data is as shown below:
+- timestamp:112 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_04
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,487 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.113:
+The next data is as shown below:
+- timestamp:113 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_04
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,487 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.114:
+The next data is as shown below:
+- timestamp:114 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_04
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,488 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.115:
+The next data is as shown below:
+- timestamp:115 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_08
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,488 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.116:
+The next data is as shown below:
+- timestamp:116 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_08
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,488 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.117:
+The next data is as shown below:
+- timestamp:117 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_08
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,488 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.118:
+The next data is as shown below:
+- timestamp:118 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_08
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,489 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.119:
+The next data is as shown below:
+- timestamp:119 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_12
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,489 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.120:
+The next data is as shown below:
+- timestamp:120 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_12
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,489 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.121:
+The next data is as shown below:
+- timestamp:121 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_12
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,490 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.122:
+The next data is as shown below:
+- timestamp:122 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_14
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,490 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.123:
+The next data is as shown below:
+- timestamp:123 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_14
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,490 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.124:
+The next data is as shown below:
+- timestamp:124 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_14
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,491 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.125:
+The next data is as shown below:
+- timestamp:125 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_14
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,491 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.126:
+The next data is as shown below:
+- timestamp:126 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,491 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.127:
+The next data is as shown below:
+- timestamp:127 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,491 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.128:
+The next data is as shown below:
+- timestamp:128 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: H_02_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,492 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.129:
+The next data is as shown below:
+- timestamp:129 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,492 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.130:
+The next data is as shown below:
+- timestamp:130 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,492 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.131:
+The next data is as shown below:
+- timestamp:131 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,493 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.132:
+The next data is as shown below:
+- timestamp:132 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,493 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.133:
+The next data is as shown below:
+- timestamp:133 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,493 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.134:
+The next data is as shown below:
+- timestamp:134 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,493 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.135:
+The next data is as shown below:
+- timestamp:135 [s]
+- Position of the nurse A: 4A_00_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,494 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.136:
+The next data is as shown below:
+- timestamp:136 [s]
+- Position of the nurse A: H_02_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,494 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.137:
+The next data is as shown below:
+- timestamp:137 [s]
+- Position of the nurse A: H_02_00
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,494 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.138:
+The next data is as shown below:
+- timestamp:138 [s]
+- Position of the nurse A: WCW1_04_02
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,495 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.139:
+The next data is as shown below:
+- timestamp:139 [s]
+- Position of the nurse A: H_02_04
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,495 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.140:
+The next data is as shown below:
+- timestamp:140 [s]
+- Position of the nurse A: H_02_04
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,495 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.141:
+The next data is as shown below:
+- timestamp:141 [s]
+- Position of the nurse A: H_02_04
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,496 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.142:
+The next data is as shown below:
+- timestamp:142 [s]
+- Position of the nurse A: H_02_04
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,496 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.143:
+The next data is as shown below:
+- timestamp:143 [s]
+- Position of the nurse A: H_02_08
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,496 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.144:
+The next data is as shown below:
+- timestamp:144 [s]
+- Position of the nurse A: H_02_08
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,497 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.145:
+The next data is as shown below:
+- timestamp:145 [s]
+- Position of the nurse A: H_02_08
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,497 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.146:
+The next data is as shown below:
+- timestamp:146 [s]
+- Position of the nurse A: H_02_08
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,497 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.147:
+The next data is as shown below:
+- timestamp:147 [s]
+- Position of the nurse A: H_02_12
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,497 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.148:
+The next data is as shown below:
+- timestamp:148 [s]
+- Position of the nurse A: H_02_12
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,498 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.149:
+The next data is as shown below:
+- timestamp:149 [s]
+- Position of the nurse A: H_02_12
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,498 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.150:
+The next data is as shown below:
+- timestamp:150 [s]
+- Position of the nurse A: H_02_14
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,498 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.151:
+The next data is as shown below:
+- timestamp:151 [s]
+- Position of the nurse A: H_02_14
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,499 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.152:
+The next data is as shown below:
+- timestamp:152 [s]
+- Position of the nurse A: H_02_14
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,499 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.153:
+The next data is as shown below:
+- timestamp:153 [s]
+- Position of the nurse A: H_02_14
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,499 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.154:
+The next data is as shown below:
+- timestamp:154 [s]
+- Position of the nurse A: H_02_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,500 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.155:
+The next data is as shown below:
+- timestamp:155 [s]
+- Position of the nurse A: H_02_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,500 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.156:
+The next data is as shown below:
+- timestamp:156 [s]
+- Position of the nurse A: H_02_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,500 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.157:
+The next data is as shown below:
+- timestamp:157 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,500 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.158:
+The next data is as shown below:
+- timestamp:158 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,501 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.159:
+The next data is as shown below:
+- timestamp:159 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,501 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.160:
+The next data is as shown below:
+- timestamp:160 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,502 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.161:
+The next data is as shown below:
+- timestamp:161 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,502 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.162:
+The next data is as shown below:
+- timestamp:162 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,502 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.163:
+The next data is as shown below:
+- timestamp:163 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,503 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.164:
+The next data is as shown below:
+- timestamp:164 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,503 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.165:
+The next data is as shown below:
+- timestamp:165 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,503 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.166:
+The next data is as shown below:
+- timestamp:166 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,504 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.167:
+The next data is as shown below:
+- timestamp:167 [s]
+- Position of the nurse A: NS_04_20
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,504 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.168:
+The next data is as shown below:
+- timestamp:168 [s]
+- Position of the nurse A: 
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,504 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.169:
+The next data is as shown below:
+- timestamp:169 [s]
+- Position of the nurse A: 
+- Position of the nurse B: NS_04_20
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,504 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.170:
+The next data is as shown below:
+- timestamp:170 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,505 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.171:
+The next data is as shown below:
+- timestamp:171 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,505 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.172:
+The next data is as shown below:
+- timestamp:172 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,505 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.173:
+The next data is as shown below:
+- timestamp:173 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,506 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.174:
+The next data is as shown below:
+- timestamp:174 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,506 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.175:
+The next data is as shown below:
+- timestamp:175 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,506 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.176:
+The next data is as shown below:
+- timestamp:176 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,507 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.177:
+The next data is as shown below:
+- timestamp:177 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,507 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.178:
+The next data is as shown below:
+- timestamp:178 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:03:48,507 [P_20240628_expMain.py:main:272] INFO       sequential prompt no.179:
+The next data is as shown below:
+- timestamp:179 [s]
+- Position of the nurse A: 
+- Position of the nurse B: 
+Please execute the task which was instructed in the first prompt.
