@@ -237,9 +237,9 @@ class defineNetwork(analysisManagement,ExpCommons):
         node_dict_key=self.node_dict.keys()
         pos={}
         for key in node_dict_key:
-            pos[key]=self.node_dict[key]["loc"]
+            pos[key]=[self.node_dict[key]["loc"][0],self.node_dict[key]["loc"][1],self.node_dict[key]["cat"]]
         df=pd.DataFrame(pos).T
-        df = df.rename(columns={0:'x',1:'y'})
+        df = df.rename(columns={0:'x',1:'y',2:"category"})
         print(df)
         df.to_csv(self.trial_dir_path+"/pos.csv")
 
@@ -288,7 +288,7 @@ class defineNetwork(analysisManagement,ExpCommons):
     def main(self):
 
         # self.export_adjacency_mtx()
-        # self.export_pos()
+        self.export_pos()
         self.plot_graph()  
         self.export_g()      
         
