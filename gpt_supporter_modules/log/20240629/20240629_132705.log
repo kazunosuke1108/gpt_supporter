@@ -1,0 +1,107 @@
+2024-06-29 13:27:06,689 [P_20240628_expMain.py:main:261] INFO       initial prompt:
+/// Task Description
+You are an internal processing system of a sensor. You are going to predict a person's actions and tasks based on the person's activity history in a certain ward.
+/// About the data to be provided
+You will pass sensor data acquired every 5 seconds. The data will include the following information.
+- The time when the data was acquired [seconds]
+- Name of the room where Nurse A is
+- Name of the room where Nurse B is located
+- Name of the room where Nurse C is located
+The room name is (room abbreviation)_(x-coordinate of room)_(y-coordinate of room), where the abbreviation has the following meaning.
+- 4X (X is a letter of the alphabet from A to K): 4-patient room
+- 1X (X is a letter from A to K): One-patient room
+- WCWx (x is 1 or 2): Women's toilet
+- WCMx (x is 1 or 2): Men's toilet
+- WCx (x is 1 or 2):Unisex toilet
+- EVx (x = 1~3):Elevator
+- Tx (x is 1 or 2):Terrace
+- P:Pantry
+- M:Meeting room
+- Sx (x is 1 or 2):Stairway
+A list of room names is shown below.
+4A_00_00, 4B_00_02, 4C_00_04, 4D_00_15, 4E_00_17, 4F_00_19, 4G_09_00, 4H_09_02, 4I_09_04, 4J_09_15, 4K_09_17, 1A_09_12, 1B_09_13, 1C_09_18, 1D_09_19, WCW1_04_01, WCM1_05_01, WCW2_05_18, WCM2_04_18, WC1_06_03, WC2_03_16, EV1_04_06, EV2_05_06, EV3_04_13, BT1_06_05, BT2_06_16, T1_00_06, T2_09_14, P_00_13, M_09_07, S1_00_14, S2_09_06, H_01_10, H_01_13, H_02_00, H_02_02, H_02_04, H_02_06, H_02_07, H_02_10, H_02_12, H_02_13, H_02_15, H_02_16, H_02_17, H_02_19, H_04_00, H_04_07, H_04_10, H_04_12, H_04_19, H_05_00, H_05_07, H_05_19, H_07_00, H_07_02, H_07_03, H_07_04, H_07_05, H_07_07, H_07_10, H_07_12, H_07_13, H_07_14, H_07_15, H_07_16, H_07_17, H_07_18, H_07_19, H_08_07, H_08_10, H_08_14
+
+
+/// About the data you output
+You are to respond according to the following format. DO NOT ADD ANY SENTENCES EXCEPT INSTRUCTED BELOW.
+1. (Answer about the task currently being performed by Nurse A)
+2. (Answer about the task currently being performed by Nurse B)
+3. (Answer about the task currently being performed by Nurse C)
+4. (Answer about the name of the room where Nurse A locates 5 seconds from now)
+5. (Answer about the name of the room where Nurse B locates 5 seconds from now)
+6. (Answer about the name of the room where Nurse C locates 5 seconds from now)
+7. (Answer about the task being performed by Nurse A in 5 seconds from now)
+8. (Answer about the task being performed by Nurse B in 5 seconds from now)
+9. (Answer about the task being performed by Nurse C in 5 seconds from now)
+2024-06-29 13:27:06,689 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.0:
+The next data is as shown below:
+- timestamp:0 [s]
+- Position of the nurse A: nurse_station
+- Position of the nurse B: nurse_station
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,689 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.15:
+The next data is as shown below:
+- timestamp:15 [s]
+- Position of the nurse A: hallway
+- Position of the nurse B: nurse_station
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,690 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.30:
+The next data is as shown below:
+- timestamp:30 [s]
+- Position of the nurse A: wc_w
+- Position of the nurse B: nurse_station
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,690 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.45:
+The next data is as shown below:
+- timestamp:45 [s]
+- Position of the nurse A: wardRoom_4
+- Position of the nurse B: hallway
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,691 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.60:
+The next data is as shown below:
+- timestamp:60 [s]
+- Position of the nurse A: wardRoom_4
+- Position of the nurse B: shelf_of_diaper
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,691 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.75:
+The next data is as shown below:
+- timestamp:75 [s]
+- Position of the nurse A: wardRoom_4
+- Position of the nurse B: hallway
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,691 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.90:
+The next data is as shown below:
+- timestamp:90 [s]
+- Position of the nurse A: wardRoom_4
+- Position of the nurse B: hallway
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,692 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.105:
+The next data is as shown below:
+- timestamp:105 [s]
+- Position of the nurse A: wardRoom_4
+- Position of the nurse B: wardRoom_4
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,692 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.120:
+The next data is as shown below:
+- timestamp:120 [s]
+- Position of the nurse A: wardRoom_4
+- Position of the nurse B: hallway
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,692 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.135:
+The next data is as shown below:
+- timestamp:135 [s]
+- Position of the nurse A: wardRoom_4
+- Position of the nurse B: nurse_station
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,693 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.150:
+The next data is as shown below:
+- timestamp:150 [s]
+- Position of the nurse A: hallway
+- Position of the nurse B: nurse_station
+Please execute the task which was instructed in the first prompt.
+2024-06-29 13:27:06,693 [P_20240628_expMain.py:main:276] INFO       sequential prompt no.165:
+The next data is as shown below:
+- timestamp:165 [s]
+- Position of the nurse A: nurse_station
+- Position of the nurse B: nurse_station
+Please execute the task which was instructed in the first prompt.

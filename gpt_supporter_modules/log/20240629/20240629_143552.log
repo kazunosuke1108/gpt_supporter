@@ -1,0 +1,116 @@
+2024-06-29 14:35:52,793 [P_20240629_expSimple.py:main:83] INFO       initial prompt:
+You are an internal processing system for a sensor installed in a hospital ward.
+You are going to estimate a person's task using only the location information of the person acquired by the sensor.
+There are three policies for estimation.
+- Judging from the current position
+    - e.g.) Person A is in the kitchen: It is highly likely that person A is cooking or washing dishes.
+- Judgment based on movement history
+    - e.g.) Ms. A is in the kitchen immediately after returning home from the supermarket: Ms. A is likely to be cooking.
+- Judging from others' location information
+    - e.g.) Ms. A is in the kitchen with many friends: Ms. A is likely preparing for a party.
+Data is obtained each time the position of one of the characters changes.
+Answers should be given as follows.
+- Task of A
+- Task of B
+You cannot raise multiple estimations for each person.
+You cannot add any response except instructed above. 
+
+2024-06-29 14:35:52,794 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 1
+
+- timestamp: 1 [s]
+- Location of A: nurse_station
+- Location of B nurse_station
+
+2024-06-29 14:35:53,732 [P_20240629_expSimple.py:main:110] INFO       response no.1:
+- Task of A: Coordinating patient care
+- Task of B: Coordinating patient care
+2024-06-29 14:35:53,743 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 12
+
+- timestamp: 12 [s]
+- Location of A: hallway
+- Location of B nurse_station
+
+2024-06-29 14:35:54,840 [P_20240629_expSimple.py:main:110] INFO       response no.12:
+- Task of A: Moving between rooms
+- Task of B: Coordinating patient care
+2024-06-29 14:35:54,840 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 33
+
+- timestamp: 33 [s]
+- Location of A: wardRoom_4
+- Location of B nurse_station
+
+2024-06-29 14:35:55,690 [P_20240629_expSimple.py:main:110] INFO       response no.33:
+- Task of A: Checking patient in ward room 4
+- Task of B: Coordinating patient care
+2024-06-29 14:35:55,699 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 42
+
+- timestamp: 42 [s]
+- Location of A: wardRoom_4
+- Location of B hallway
+
+2024-06-29 14:35:56,638 [P_20240629_expSimple.py:main:110] INFO       response no.42:
+- Task of A: Checking patient in ward room 4
+- Task of B: Moving between rooms
+2024-06-29 14:35:56,640 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 53
+
+- timestamp: 53 [s]
+- Location of A: wardRoom_4
+- Location of B shelf_of_diaper
+
+2024-06-29 14:35:57,295 [P_20240629_expSimple.py:main:110] INFO       response no.53:
+- Task of A: Checking patient in ward room 4
+- Task of B: Restocking diapers
+2024-06-29 14:35:57,296 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 64
+
+- timestamp: 64 [s]
+- Location of A: wardRoom_4
+- Location of B hallway
+
+2024-06-29 14:35:58,194 [P_20240629_expSimple.py:main:110] INFO       response no.64:
+- Task of A: Checking patient in ward room 4
+- Task of B: Moving between rooms
+2024-06-29 14:35:58,196 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 95
+
+- timestamp: 95 [s]
+- Location of A: wardRoom_4
+- Location of B wardRoom_4
+
+2024-06-29 14:35:59,260 [P_20240629_expSimple.py:main:110] INFO       response no.95:
+- Task of A: Consulting with B or administering care together in ward room 4
+- Task of B: Consulting with A or administering care together in ward room 4
+2024-06-29 14:35:59,263 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 108
+
+- timestamp: 108 [s]
+- Location of A: wardRoom_4
+- Location of B hallway
+
+2024-06-29 14:36:00,090 [P_20240629_expSimple.py:main:110] INFO       response no.108:
+- Task of A: Checking patient in ward room 4
+- Task of B: Moving between rooms
+2024-06-29 14:36:00,091 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 129
+
+- timestamp: 129 [s]
+- Location of A: wardRoom_4
+- Location of B nurse_station
+
+2024-06-29 14:36:01,005 [P_20240629_expSimple.py:main:110] INFO       response no.129:
+- Task of A: Checking patient in ward room 4
+- Task of B: Coordinating patient care
+2024-06-29 14:36:01,007 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 136
+
+- timestamp: 136 [s]
+- Location of A: hallway
+- Location of B nurse_station
+
+2024-06-29 14:36:01,632 [P_20240629_expSimple.py:main:110] INFO       response no.136:
+- Task of A: Moving between rooms
+- Task of B: Coordinating patient care
+2024-06-29 14:36:01,632 [P_20240629_expSimple.py:main:92] INFO       sequential prompt no. 157
+
+- timestamp: 157 [s]
+- Location of A: nurse_station
+- Location of B nurse_station
+
+2024-06-29 14:36:02,628 [P_20240629_expSimple.py:main:110] INFO       response no.157:
+- Task of A: Coordinating patient care
+- Task of B: Coordinating patient care

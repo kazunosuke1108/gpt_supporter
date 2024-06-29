@@ -51,6 +51,8 @@ class expMain(analysisManagement,ExpCommons):
             try:
                 print(f"A: {self.traj_A[:,index]} {self.label_list_A[index]} {self.node_dict[self.label_list_A[index]]['cat']}")
                 print(f"B: {self.traj_B[:,index]} {self.label_list_B[index]} {self.node_dict[self.label_list_B[index]]['cat']}")
+                output_data=[index,self.traj_A[0,index],self.traj_A[1,index],self.label_list_A[index],self.node_dict[self.label_list_A[index]]['cat'],self.traj_B[0,index],self.traj_B[1,index],self.label_list_B[index],self.node_dict[self.label_list_B[index]]['cat']]
+                self.write_csvlog(output_data=output_data,csvpath=self.trial_dir_path+"/motion_history.csv")
             except KeyError:
                 break
 
