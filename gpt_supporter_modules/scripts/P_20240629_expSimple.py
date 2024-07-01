@@ -32,23 +32,8 @@ class expSimple(analysisManagement,ExpCommons):
             print(scenes)
             return scenes
 
-    def get_initialPrompt(self,mode="room_position"):
-        """
-        あなたは病棟に設置されたセンサの内部処理システムである．
-        あなたはこれから，センサで取得した人物の位置情報のみを用いて，人物のタスクを推定する．
-        推定する際の思考方法として，3つの方針を与える．
-        - 現在位置から判断する
-            - 例) Aさんがキッチンにいる: Aさんは炊事か洗い物をしている可能性が高い
-        - 移動履歴から判断する
-            - 例) Aさんはスーパーから帰宅した直後にキッチンにいる: Aさんは炊事をしている可能性が高い
-        - 他者の位置情報から判断する
-            - 例) Aさんは多くの友達と一緒にキッチンに居る: Aさんはパーティの準備をする可能性が高い
-        データは登場人物のいずれかの位置が変化する度に取得される．
-        回答は以下のように行うこと．
-        - Aのタスク
-        - Bのタスク
-        """
-        if mode=="room_position":
+    def get_initialPrompt(self,mode="category"):
+        if mode=="category":
             initialPrompt="""You are an internal processing system for a sensor installed in a hospital ward.
 You are going to estimate a person's task using only the location information of the person acquired by the sensor.
 There are three policies for estimation.
@@ -140,8 +125,8 @@ H_02_38,2,38,hallway
         sequentialPrompt=f"""
 - timestamp: {info[0]} [s]
 - Location of Nurse A: {info[1]}
-- Location of Nurse B {info[2]} {info[3]}
-"""
+- Location of Nurse B {info[2]}
+"""# {info[3]}
         return sequentialPrompt
     
     def get_finalPrompt(self):
@@ -154,10 +139,10 @@ This is the end of the data. Answer the question about this scenario.
         return finalPrompt
 
     def main(self,gpt=False):
-        self.scenes=self.extract_scene(motion_history=self.motion_history,mode="10")
+        self.scenes=self.extract_scene(motion_history=self.motion_history,mode="2")
 
         messages=[]
-        initialPrompt=self.get_initialPrompt(mode="10")
+        initialPrompt=self.get_initialPrompt(mode="2")
         self.logger.info(f"initial prompt:\n{initialPrompt}")
         if gpt:
             messages.append({
@@ -166,11 +151,12 @@ This is the end of the data. Answer the question about this scenario.
             })
 
         for index,scene in self.scenes.iterrows():
-            if (scene["timestamp"]>=64) & (scene["timestamp"]<=94):
-                diapers="(Possesses diapers)"
-            else:
-                diapers=""
-            sequentialPrompt=self.get_sequentialPrompt([scene["timestamp"],[scene["x_A"],scene["y_A"]],[scene["x_B"],scene["y_B"]],diapers])
+            # if (scene["timestamp"]>=64) & (scene["timestamp"]<=94):
+            #     diapers="(Possesses diapers)"
+            # else:
+            #     diapers=""
+            # sequentialPrompt=self.get_sequentialPrompt([scene["timestamp"],scene["category_A"],scene["category_B"]])#,diapers])
+            sequentialPrompt=self.get_sequentialPrompt([scene["timestamp"],[scene["x_A"],scene["y_A"]],[scene["x_B"],scene["y_B"]]])#,diapers])
             self.logger.info(f"sequential prompt no. {index}\n{sequentialPrompt}")
             if gpt:
                 messages.append({

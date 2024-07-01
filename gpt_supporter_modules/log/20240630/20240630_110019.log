@@ -1,0 +1,83 @@
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:146] INFO       initial prompt:
+You are an internal processing system for a sensor installed in a hospital ward.
+You are going to estimate a person's task using only the location information of the person acquired by the sensor.
+There are three policies for estimation.
+- Judging from the current position
+    - e.g.) Person A is in the kitchen: It is highly likely that person A is cooking or washing dishes.
+- Judgment based on movement history
+    - e.g.) Person A is in the kitchen immediately after returning home from the supermarket: Person A is likely to be cooking.
+- Judging from others' location information
+    - e.g.) Person B joins person A at the kitchen: Person B brings ingrediants for A.
+Data is obtained each time the position of one of the characters changes.
+Answers should be given as follows.
+- Task of Nurse A (Most likely)
+- Task of Nurse B (Most likely)
+Describe the most likely task in detail, not raise multiple candidates.
+You cannot add any response except instructed above. 
+
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 1
+
+- timestamp: 1 [s]
+- Location of Nurse A: nurse_station
+- Location of Nurse B nurse_station
+
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 12
+
+- timestamp: 12 [s]
+- Location of Nurse A: hallway
+- Location of Nurse B nurse_station
+
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 33
+
+- timestamp: 33 [s]
+- Location of Nurse A: ward_room
+- Location of Nurse B nurse_station
+
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 42
+
+- timestamp: 42 [s]
+- Location of Nurse A: ward_room
+- Location of Nurse B hallway
+
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 53
+
+- timestamp: 53 [s]
+- Location of Nurse A: ward_room
+- Location of Nurse B shelf_of_diaper
+
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 64
+
+- timestamp: 64 [s]
+- Location of Nurse A: ward_room
+- Location of Nurse B hallway
+
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 95
+
+- timestamp: 95 [s]
+- Location of Nurse A: ward_room
+- Location of Nurse B ward_room
+
+2024-06-30 11:00:19,780 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 108
+
+- timestamp: 108 [s]
+- Location of Nurse A: ward_room
+- Location of Nurse B hallway
+
+2024-06-30 11:00:19,781 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 129
+
+- timestamp: 129 [s]
+- Location of Nurse A: ward_room
+- Location of Nurse B nurse_station
+
+2024-06-30 11:00:19,781 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 136
+
+- timestamp: 136 [s]
+- Location of Nurse A: hallway
+- Location of Nurse B nurse_station
+
+2024-06-30 11:00:19,781 [P_20240629_expSimple.py:main:160] INFO       sequential prompt no. 157
+
+- timestamp: 157 [s]
+- Location of Nurse A: nurse_station
+- Location of Nurse B nurse_station
+
