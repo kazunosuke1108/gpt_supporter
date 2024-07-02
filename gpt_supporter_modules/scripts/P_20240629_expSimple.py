@@ -101,7 +101,7 @@ P_00_26,0,26,pantry
 M_09_14,9,14,mtgRoom
 S1_00_28,0,28,stairs
 S2_09_12,9,12,stairs
-Sh_03_30,3,30,shelf_of_diaper
+Sh_03_30,3,30,shelf_of_medicine
 NS_04_20,4,20,nurse_station
 H_01_20,1,20,hallway
 H_01_26,1,26,hallway
@@ -139,10 +139,10 @@ This is the end of the data. Answer the question about this scenario.
         return finalPrompt
 
     def main(self,gpt=False):
-        self.scenes=self.extract_scene(motion_history=self.motion_history,mode="2")
+        self.scenes=self.extract_scene(motion_history=self.motion_history,mode="10")
 
         messages=[]
-        initialPrompt=self.get_initialPrompt(mode="2")
+        initialPrompt=self.get_initialPrompt(mode="10")
         self.logger.info(f"initial prompt:\n{initialPrompt}")
         if gpt:
             messages.append({
