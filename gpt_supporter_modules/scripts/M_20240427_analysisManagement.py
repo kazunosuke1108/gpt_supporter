@@ -49,6 +49,8 @@ class analysisManagement():
         for cov_name in cov_list:
             for i in np.arange(1,10,1):
                 csv_labels["imu"].append(cov_name+"_"+str(i).zfill(2))
+
+        csv_labels["motion_history"]=["timestamp","x_A","y_A","roomID_A","roomCategory_A","x_B","y_B","roomID_B","roomCategory_B"]
         
 
         # 実験種別と色の対応表

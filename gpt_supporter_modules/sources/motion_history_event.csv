@@ -1,0 +1,12 @@
+,timestamp,x_A,y_A,roomID_A,roomCategory_A,x_B,y_B,roomID_B,roomCategory_B
+1,1,4.0,20.0,NS_04_20,nurse_station,4.0,20.0,NS_04_20,nurse_station
+12,12,2.0,20.0,H_02_20,hallway,4.0,20.0,NS_04_20,nurse_station
+33,33,1.0,0.0,4A_00_00,ward_room,4.0,20.0,NS_04_20,nurse_station
+42,42,0.0,0.0,4A_00_00,ward_room,2.0,20.0,H_02_20,hallway
+53,53,0.0,0.0,4A_00_00,ward_room,3.0,30.0,Sh_03_30,shelf_of_medicine
+64,64,0.0,0.0,4A_00_00,ward_room,2.0,30.0,H_02_30,hallway
+95,95,0.0,0.0,4A_00_00,ward_room,1.0,0.0,4A_00_00,ward_room
+108,108,0.0,0.0,4A_00_00,ward_room,2.0,0.0,H_02_00,hallway
+129,129,0.0,0.0,4A_00_00,ward_room,3.0,20.0,NS_04_20,nurse_station
+136,136,2.0,0.0,H_02_00,hallway,4.0,20.0,NS_04_20,nurse_station
+157,157,3.0,20.0,NS_04_20,nurse_station,4.0,20.0,NS_04_20,nurse_station
