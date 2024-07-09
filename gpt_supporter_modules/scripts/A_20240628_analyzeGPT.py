@@ -34,6 +34,7 @@ class analyzeGPT(analysisManagement,ExpCommons):
 
         motion_history_10=motion_history[motion_history["timestamp"]%int(10)==0]
         motion_history_10.to_csv(motion_history_csv_path[:-4]+"_10.csv")
+        motion_history.to_csv(motion_history_csv_path[:-4]+"_label.csv")
         pass
 
 cls=analyzeGPT()
