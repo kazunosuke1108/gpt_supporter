@@ -261,18 +261,65 @@ class defineNetwork(analysisManagement,ExpCommons):
         pprint(self.json_dict)
 
     def export_explanation(self):
-        main_loop_nodes=["H_02_00","H_02_04","H_02_08","H_02_08","H_02_12","H_02_14","H_02_20","H_02_24","H_02_26","H_02_30","H_02_32","H_02_34","H_02_38","H_04_38","H_05_38","H_07_38","H_07_36","H_07_34","H_07_32","H_07_30","H_07_28","H_07_26","H_07_24","H_07_20","H_07_14","H_07_10","H_07_08","H_07_06","H_07_04","H_07_00","H_05_00","H_04_00"]
-        
+        main_loop_nodes=[
+            "H_02_00",
+            "H_02_04",
+            "H_02_08",
+            "H_02_12",
+            "H_02_14",
+            "H_04_14",
+            "H_05_14",
+            "H_07_14",
+            "H_07_20",
+            "H_07_24",
+            "H_04_24",
+            "H_02_24",
+            "H_02_26",
+            "H_02_30",
+            "H_02_32",
+            "H_02_34",
+            "H_02_38",
+            "H_04_38",
+            "H_05_38",
+            "H_07_38",
+            "H_07_36",
+            "H_07_34",
+            "H_07_32",
+            "H_07_30",
+            "H_07_28",
+            "H_07_26",
+            "H_07_24",
+            "H_04_24",
+            "H_02_24",
+            "H_02_20",
+            "H_02_14",
+            "H_04_14",
+            "H_05_14",
+            "H_07_14",
+            "H_07_10",
+            "H_07_08",
+            "H_07_06",
+            "H_07_04",
+            "H_07_00",
+            "H_05_00",
+            "H_04_00",
+            # "H_02_00",
+        ]
+        # main_loop_nodes=["H_02_00","H_02_04","H_02_08","H_02_08","H_02_12","H_02_14","H_02_20","H_02_24","H_02_26","H_02_30","H_02_32","H_02_34","H_02_38","H_04_38","H_05_38","H_07_38","H_07_36","H_07_34","H_07_32","H_07_30","H_07_28","H_07_26","H_07_24","H_07_20","H_07_14","H_07_10","H_07_08","H_07_06","H_07_04","H_07_00","H_05_00","H_04_00"]
+        main_loop_nodes_all=main_loop_nodes
+        main_loop_nodes.reverse()
+        main_loop_nodes_all=main_loop_nodes_all+main_loop_nodes
+        pprint(main_loop_nodes_all)
         explanation="これから部屋の説明を始めます．"
-        for idx,current_node in enumerate(main_loop_nodes):
+        for idx,current_node in enumerate(main_loop_nodes_all):
             current_location=self.json_dict[current_node]["location"]
             # 現在地
-            explanation+=f"今，廊下 (ID: {current_node})にいます．\n"
+            explanation+=f"現在地点は，廊下 (ID: {current_node}, 座標: {current_location})です．\n"
             # 隣接ノード
             adj_rooms=self.json_dict[current_node]["隣接ノード"]
             for adj_room in adj_rooms:
-                explanation+=f"この廊下は{self.json_dict[adj_room]['category']} (ID: {adj_room})に隣接しており，現在地点から"
                 adj_location=self.json_dict[adj_room]["location"]
+                explanation+=f"この廊下は{self.json_dict[adj_room]['category']} (ID: {adj_room}, 座標: {adj_location})に隣接しており，現在地点の"
                 if adj_location[1]-current_location[1]>0:
                     explanation+="北"
                 elif adj_location[1]-current_location[1]<0:
@@ -281,9 +328,9 @@ class defineNetwork(analysisManagement,ExpCommons):
                     explanation+="東"
                 elif adj_location[0]-current_location[0]<0:
                     explanation+="西"
-                explanation+="にあります．\n"
-            if idx<len(main_loop_nodes)-1:
-                explanation+=f"では次に，{self.json_dict[main_loop_nodes[idx+1]]['category']} (ID: {main_loop_nodes[idx+1]})に移動します．\n\n"
+                explanation+="側です．\n"
+            if idx<len(main_loop_nodes_all)-1:
+                explanation+=f"では次に，{self.json_dict[main_loop_nodes_all[idx+1]]['category']} (ID: {main_loop_nodes_all[idx+1]})に移動します．\n\n"
         pass
         print(explanation)
 
