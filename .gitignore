@@ -7,3 +7,4 @@
 gpt_supporter_modules/results
 # gpt_supporter_modules/log
 gpt_supporter_modules/sources/graph
+*.pickle
